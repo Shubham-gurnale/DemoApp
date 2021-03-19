@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:finalapp/src/models/authy_user.dart';
 import 'package:finalapp/src/services/auth_service.dart';
 import 'package:finalapp/src/services/firestore_service.dart';
@@ -32,7 +33,7 @@ class AuthBloc {
   final _showConfirmationDialog = BehaviorSubject<bool>();
   final _showAutomatedConfirmationDialog = BehaviorSubject<bool>();
   final _emailVerified = BehaviorSubject<bool>();
-  final _user = BehaviorSubject<AuthyUser>();
+  final _user = BehaviorSubject<DemoUser>();
 
   AuthBloc() {
     _authService.currentUser().listen((user) {
@@ -70,7 +71,7 @@ class AuthBloc {
   Stream<String> get errorMessage => _errorMessage.stream;
   Stream<String> get confirmationCode => _confirmationCode.stream;
   Stream<bool> get processRunning => _processRunning.stream;
-  Stream<AuthyUser> get user => _user.stream;
+  Stream<DemoUser> get user => _user.stream;
   Stream<bool> get showConfirmationDialog => _showConfirmationDialog;
   Stream<bool> get showAutomatedConfirmationDialog =>
       _showAutomatedConfirmationDialog;
@@ -179,7 +180,7 @@ class AuthBloc {
           await _authService.signupEmail(_email.value, _password.value);
 
       //Create App Database User
-      var authyUser = AuthyUser(
+      var authyUser = DemoUser(
           email: authResult.user.email,
           userId: authResult.user.uid,
           verified: false);
@@ -348,12 +349,12 @@ class AuthBloc {
     var user = await _dbService.getUser(result.user.uid);
     if (user == null) {
       //Create App Database User
-      var authyUser = AuthyUser(
+      var demoUser = DemoUser(
           email: result.user.email,
           userId: result.user.uid,
           verified: verified,
           displayName: result.user.displayName);
-      await _dbService.setUser(authyUser);
+      await _dbService.setUser(demoUser);
     }
 
     setUser(result.user.uid);
