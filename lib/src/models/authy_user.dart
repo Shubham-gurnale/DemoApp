@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 
-class AuthyUser {
+class DemoUser {
   final String userId;
   final String displayName;
   final String email;
   final String profileUrl;
   final bool verified;
 
-  AuthyUser({@required this.email,this.displayName='',this.profileUrl='',@required this.userId, @required this.verified});
+  DemoUser({@required this.email,this.displayName='',this.profileUrl='',@required this.userId, @required this.verified});
 
   Map<String,dynamic> toMap(){
     return {
@@ -19,10 +19,10 @@ class AuthyUser {
     };
   }
 
-  factory AuthyUser.fromJson(Map<String,dynamic> json){
+  factory DemoUser.fromJson(Map<String,dynamic> json){
     if (json == null) return null;
 
-    return AuthyUser(
+    return DemoUser(
       userId: json['user_id'],
       profileUrl: json['profile_url'],
       displayName: json['display_name'],
