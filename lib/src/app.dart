@@ -28,9 +28,9 @@ class _AppState extends State<App> {
             accentColor: Colors.deepPurple,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: GoogleFonts.orbitronTextTheme()),
-        home: StreamBuilder<AuthyUser>(
+        home: StreamBuilder<DemoUser>(
             stream: authBloc.user,
-            initialData: AuthyUser(userId: 'placeholder',email: 'placeholder',verified: true),
+            initialData: DemoUser(userId: 'placeholder',email: 'placeholder',verified: true),
             builder: (context, snapshot) {
               if (snapshot.data == null) {
                 return LoginScreen();
