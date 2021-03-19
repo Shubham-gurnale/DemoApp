@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
         IconButton(icon: Icon(FontAwesomeIcons.signOutAlt), onPressed: () => authBloc.signOut())
       ],),
-      body: Center(child: StreamBuilder<AuthyUser>(
+      body: Center(child: StreamBuilder<DemoUser>(
         stream: authBloc.user,
         builder: (context, snapshot) {
           if (!snapshot.hasData) return CircularProgressIndicator();
