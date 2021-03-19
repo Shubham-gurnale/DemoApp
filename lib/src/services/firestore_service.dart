@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 class FirestoreService {
   FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Future<void> setUser(AuthyUser user){
+  Future<void> setUser(DemoUser user){
     return _db.collection('users').doc(user.userId).set(user.toMap());
   }
   
@@ -21,11 +21,11 @@ class FirestoreService {
     });
   }
 
-  Future<AuthyUser> getUser(String userId){
+  Future<DemoUser> getUser(String userId){
       return _db
           .collection('users')
           .doc(userId)
           .get()
-          .then((snapshot) => AuthyUser.fromJson(snapshot.data()));
+          .then((snapshot) => DemoUser.fromJson(snapshot.data()));
   }
 }
