@@ -1,6 +1,4 @@
 import 'dart:async';
-
-//import 'package:apple_sign_in/apple_sign_in.dart';
 import 'package:finalapp/src/models/authy_user.dart';
 import 'package:finalapp/src/services/auth_service.dart';
 import 'package:finalapp/src/services/firestore_service.dart';
@@ -297,50 +295,6 @@ class AuthBloc {
       _errorMessage.sink.add(error.message);
     }
   }
-
-  /*signinApple() async {
-    if (!await AppleSignIn.isAvailable()) {
-      _errorMessage.sink.add('This Device is not eligible for Apple Sign in');
-      return null; //Break from the program
-    }
-
-    final res = await AppleSignIn.performRequests([
-      AppleIdRequest(requestedScopes: [Scope.email, Scope.fullName])
-    ]);
-
-    _processRunning.sink.add(true);
-
-    switch (res.status) {
-      case AuthorizationStatus.authorized:
-        try {
-          //Get Token
-          final AppleIdCredential appleIdCredential = res.credential;
-          final OAuthProvider oAuthProvider = OAuthProvider('apple.com');
-          final credential = oAuthProvider.credential(
-              idToken: String.fromCharCodes(appleIdCredential.identityToken),
-              accessToken:
-                  String.fromCharCodes(appleIdCredential.authorizationCode));
-
-          await signinWithCredential(credential);
-
-          _processRunning.sink.add(false);
-        } on PlatformException catch (error) {
-          _processRunning.sink.add(false);
-          _errorMessage.sink.add(error.message);
-        } on FirebaseAuthException catch (error) {
-          _processRunning.sink.add(false);
-          _errorMessage.sink.add(error.message);
-        }
-        break;
-      case AuthorizationStatus.error:
-        _processRunning.sink.add(false);
-        _errorMessage.sink.add('Apple authorization failed');
-        break;
-      case AuthorizationStatus.cancelled:
-        _processRunning.sink.add(false);
-        break;
-    }
-  }*/
 
   signupPhone() {
     _processRunning.sink.add(true);
