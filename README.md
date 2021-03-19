@@ -19,10 +19,25 @@ This project is a starting point for a Flutter application.
 
    ## Phone Auth
       From the Authentication portion of your firebase project panel, enable phone authentication under the sign-in method tab.
-    Enable Apple Push Notifications
-    Create FCM Key
+      Enable Apple Push Notifications
+      Create FCM Key
+      
+ ## Reference packages/plugins
+ ## NOTE: Try too get te latest versions(https://pub.dev/)->Search ->Go-to installation -> Copy dependencies -> paste in out pubspec.yaml File
+   1. cupertino_icons: ^1.0.0
+   2. flutter_signin_button: ^1.1.0
+   3. font_awesome: ^5.10.1
+   4. google_fonts: ^1.1.1
+   5. firebase_core: ^0.5.3
+   6. firebase_auth: ^0.18.4+1
+   7. provider: ^4.3.2+3
+   8. rxdart: ^0.25.0
+   9. cloud_firestore: ^0.14.4
+   10. loading_overlay: ^0.2.1
+   11. flutter_login_facebook: ^0.4.2+1
+   12. google_sign_in: ^4.5.6
     
-    
+ 
 
 
 
